@@ -13,6 +13,22 @@ public class Busca {
         return -1;
     }
 
+    private static int linearRecursiva(Estudante[] vetor, int matriculaBuscada, int i) {
+        if (i >= vetor.length) {
+            return -1;
+        }
+
+        if (vetor[i].getMatricula() == matriculaBuscada) {
+            return i;
+        }
+
+        return linearRecursiva(vetor, matriculaBuscada, i + 1);
+    }
+
+    public static int linearRecursiva(Estudante[] vetor, int matriculaBuscada) {
+        return linearRecursiva(vetor, matriculaBuscada, 0);
+    }
+
     public static int binariaIterativa(Estudante[] vetor, int matriculaBuscada) {
         int inicio = 0;
         int fim = vetor.length - 1;
