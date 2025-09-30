@@ -3,6 +3,7 @@ package projeto_unidade1.algoritmos_de_ordenacao;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class Utilitarios {
     public static void imprimirVetor(int[] v, int tamanho) {
@@ -54,4 +55,16 @@ public class Utilitarios {
         vetor[i] = vetor[j];
         vetor[j] = temp;
     }
+
+    public static void shuffleVetor(int[] vetor) {
+        Random embaralhador = new Random();
+
+        for (int i = vetor.length - 1; i > 0; i--) {
+            int j = embaralhador.nextInt(i + 1);
+            int temp = vetor[i];
+            vetor[i] = vetor[j];
+            vetor[j] = temp;
+        }
+    }
+
 }
