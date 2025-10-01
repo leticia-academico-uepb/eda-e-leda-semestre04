@@ -50,4 +50,26 @@ public class Busca {
         return -1;
     }
 
+    private static int binariaRecursiva(Estudante[] vetor, int matriculaBuscada, int i, int j) {
+        if (i <= j) {
+            int meio = (i + j) / 2;
+
+            if (vetor[meio].getMatricula() == matriculaBuscada) {
+                return meio;
+            }
+
+            if (vetor[meio].getMatricula() < matriculaBuscada) {
+                return binariaRecursiva(vetor, matriculaBuscada, meio + 1, j);
+            } else {
+                return binariaRecursiva(vetor, matriculaBuscada, i, meio - 1);
+            }
+        }
+
+        return -1;
+    }
+
+    public static int binariaRecursiva(Estudante[] vetor, int matriculaBuscada) {
+        return binariaRecursiva(vetor, matriculaBuscada, 0, vetor.length - 1);
+    }
+
 }
